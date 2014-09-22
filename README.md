@@ -4,7 +4,7 @@ Bootstrap Modal Plugin for Durandal.js
 
 Bootstrap Modal Plugin For Durandal.js.
 
-Tested on Bootstrap 3.2 and on Durandal 2.1.0.
+Tested on Bootstrap 3.2 and Durandal 2.1.0.
 
 
 ## Installation
@@ -26,7 +26,7 @@ Tested on Bootstrap 3.2 and on Durandal 2.1.0.
 Displays Twitter Bootstrap modal as a dialog.
 
 ##### dialog.showBootstrapMessage(message, title, options, autoclose, settings) 
-Displays Twitter Bootstrap modal as a message..
+Displays Twitter Bootstrap modal as a message.
 
 
 
