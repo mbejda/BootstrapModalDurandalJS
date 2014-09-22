@@ -48,9 +48,14 @@ define(['durandal/system', 'plugins/dialog', 'durandal/app', 'durandal/viewEngin
         app.showBootstrapDialog = function(obj, activationData) {
             return dialog.show(obj, activationData, 'bootstrapModal');
         };
-        app.showBootstrapMessage = function(obj, activationData) {
-            return dialog.showBootstrapMessage(obj, activationData, 'bootstrapModal');
+        app.showBootstrapMessage = function(message, title, options, autoclose, settings) {
+            return dialog.showBootstrapMessage(message, title, options, autoclose, settings);
         };
+
+        dialog.showBootstrapDialog = function(obj, activationData)
+        {
+            return dialog.show(obj, activationData, 'bootstrapModal');
+        }
         dialog.showBootstrapMessage = function(message, title, options, autoclose, settings) {
             if (system.isString(this.MessageBox)) {
                 return dialog.show(this.MessageBox, [
