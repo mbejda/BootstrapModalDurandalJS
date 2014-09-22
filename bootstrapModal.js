@@ -9,23 +9,19 @@ define(['durandal/system', 'plugins/dialog', 'durandal/app', 'durandal/viewEngin
             theDialog.host = host.get(0);
         },
         removeHost: function(theDialog) {
-
             $('#bootstrapModal').modal('hide');
             $('body').removeClass('modal-open');
-
-
         },
         attached: null,
         compositionComplete: function(child, parent, context) {
             var theDialog = dialog.getDialog(context.model);
             var options = {};
-            options['show'] = true;
+            options.show = true;
             $('#bootstrapModal').modal(options);
             $('#bootstrapModal').on('hidden.bs.modal', function(e) {
                 theDialog.close();
                 ko.removeNode(theDialog.host);
                 $('.modal-backdrop').remove();
-
             });
         }
     });
@@ -47,12 +43,11 @@ define(['durandal/system', 'plugins/dialog', 'durandal/app', 'durandal/viewEngin
         '</div>',
         '</div>'
     ].join('\n');
-    var bootstrapModal = function() {}
+    var bootstrapModal = function() {};
     bootstrapModal.install = function() {
-        app.showBootstrapDialog = function(obj, activationData, options) {
+        app.showBootstrapDialog = function(obj, activationData) {
             return dialog.show(obj, activationData, 'bootstrapModal');
         };
-
         app.showBootstrapMessage = function(obj, activationData) {
             return dialog.showBootstrapMessage(obj, activationData, 'bootstrapModal');
         };
@@ -76,8 +71,8 @@ define(['durandal/system', 'plugins/dialog', 'durandal/app', 'durandal/viewEngin
             this.MessageBox.prototype.getView = function() {
                 return viewEngine.processMarkup(bootstrapMarkup);
             };
-            var settings = $.extend(bootstrapDefaults, settings);
-            return dialog.show(new dialog.MessageBox(message, title, options, autoclose, settings), {}, 'bootstrapModal');
+            var bootstrapSettings = $.extend(bootstrapDefaults, settings);
+            return dialog.show(new dialog.MessageBox(message, title, options, autoclose, bootstrapSettings), {}, 'bootstrapModal');
         };
         dialog.MessageBox.prototype.compositionComplete = function(child, parent, context) {
             var theDialog = dialog.getDialog(context.model);
@@ -89,6 +84,5 @@ define(['durandal/system', 'plugins/dialog', 'durandal/app', 'durandal/viewEngin
             }
         };
     };
-
     return bootstrapModal;
 });
