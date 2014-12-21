@@ -1,4 +1,4 @@
-define(['durandal/system', 'plugins/dialog', 'durandal/app', 'durandal/viewEngine', 'knockout'], function(system, dialog, app, viewEngine, ko) {
+define(['durandal/system', 'plugins/dialog', 'durandal/app', 'durandal/viewEngine', 'knockout', 'jquery', 'bootstrap'], function(system, dialog, app, viewEngine, ko, $, bootstrap) {
     dialog.addContext('bootstrapModal', {
         blockoutOpacity: .2,
         removeDelay: 300,
